@@ -6,7 +6,6 @@
 Animation* idleAnim{};
 Animation* runAnim{};
 
-Character::Character(){}
 
 Character::Character(const char* textureUrl, sf::Vector2f position, float scale, float width,
 float height, int col, int row, float moveSpeed, sf::RenderWindow*& window, b2World*& world) :
