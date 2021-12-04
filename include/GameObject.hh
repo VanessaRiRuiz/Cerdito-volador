@@ -10,6 +10,7 @@ protected:
   Drawable* drawable{};
   sf::RenderWindow* window{};
   Rigidbody* rigidbody{};
+  std::string tagName{};
 public:
   GameObject();
   GameObject(const char* textureUrl, sf::Vector2f position, float scale, float width, float height, int col, int row,

@@ -1,5 +1,5 @@
 #include "GameObject.hh"
-
+#include <iostream>
 GameObject::GameObject()
 {
 
@@ -13,7 +13,7 @@ b2BodyType bodyType, sf::RenderWindow*& window, b2World*& world)
 
   rigidbody = new Rigidbody(world, new b2Vec2(position.x, position.y), width * scale, height * scale,
   bodyType, new b2Vec2(drawable->GetSprite()->getOrigin().x, drawable->GetSprite()->getOrigin().y),
-  0.f, 1.f, 0.f, 0.f);
+  0.f, 1.f, 0.f, 0.f, (void*)this);
 
   drawable->GetSprite()->setOrigin(width / 2, height / 2);
 }
@@ -22,6 +22,18 @@ GameObject::~GameObject()
 {
 }
 
+//setTagName function
+void GameObject::setTagName(std::string tagName)
+{
+  this->tagName = tagName;
+    std::cout << "tagName: " << tagName << std::endl;
+}
+//getTagName function
+std::string GameObject::getTagName()
+{
+  return tagName;
+
+}
 void GameObject::Update(float& deltaTime)
 {
   drawable->SetPosition(rigidbody->GetPosition2SFML());

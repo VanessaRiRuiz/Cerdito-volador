@@ -4,7 +4,7 @@
 
 sf::RectangleShape* rectangle{new sf::RectangleShape(sf::Vector2f(300.f, 300.f))};
 Character* character1{};
-//GameObject* chest1{};
+GameObject* bacon1{};
 
 //fila arriba
 CloudH* cloudh{};CloudH* cloudh2{};CloudH* cloudh3{};CloudH* cloudh4{};CloudH* cloudh5{};
@@ -74,7 +74,9 @@ Game::Game()
   gameObjects = new std::vector<GameObject*>();
 
   character1 = new Character(ASSETS_SPRITES, sf::Vector2f(500.f, 500.f), GAME_SCALE, 20, 16, 0, 5, 200.f, window, world);
- //  chest1 = new GameObject(ASSETS_SPRITES, sf::Vector2f(500.f, 300.f), GAME_SCALE, 16, 16, 6, 1, b2BodyType::b2_staticBody, window, world);
+  bacon1 = new GameObject(ASSETS_SPRITES, sf::Vector2f(500.f, 500.f), GAME_SCALE, 10, 15, 10, 1, b2BodyType::b2_staticBody, window, world);
+  character1->setTagName("character1");
+  bacon1->setTagName("bacon");
   //fila arriba
   cloudh = new CloudH(ASSETS_SPRITES, sf::Vector2f(10, 20), GAME_SCALE, 16, 16, 6, 3, window, world);
   cloudh2 = new CloudH(ASSETS_SPRITES, sf::Vector2f(75, 20), GAME_SCALE, 16, 16, 4, 5, window, world);
@@ -269,8 +271,6 @@ Game::Game()
   14, sf::Color::White, sf::Vector2f(50.f, 50.f));
   
   //fila arriba
-  gameObjects->push_back(character1);
-  //gameObjects->push_back(chest1);
   gameObjects->push_back(cloudh);
   gameObjects->push_back(cloudh2);
   gameObjects->push_back(cloudh3);
@@ -382,8 +382,10 @@ gameObjects->push_back(cloudh144);
 gameObjects->push_back(cloudh145);
 gameObjects->push_back(cloudh146);
 gameObjects->push_back(cloudh147);
-gameObjects->push_back(cloudh148);gameObjects->push_back(cloudh149);
-gameObjects->push_back(cloudh150);gameObjects->push_back(cloudh151);
+gameObjects->push_back(cloudh148);
+gameObjects->push_back(cloudh149);
+gameObjects->push_back(cloudh150);
+gameObjects->push_back(cloudh151);
    //columna derecha
    gameObjects->push_back(cloudh52);
    gameObjects->push_back(cloudh53);
@@ -448,6 +450,10 @@ void Game::Start()
 
   world->SetDebugDraw(drawPhysics);
   drawPhysics->SetFlags(flags);
+
+  gameObjects->push_back(character1);
+  gameObjects->push_back(bacon1);
+  world->SetContactListener(contactEventManager);
 }
 
 void Game::Run()
@@ -506,7 +512,7 @@ void Game::MainLoop()
       gameObject->Draw();
     }
     text1->Draw();
-    //world->DebugDraw();
+    world->DebugDraw();
   }
 
   void Game::InputHandle()
