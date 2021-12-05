@@ -22,18 +22,6 @@ GameObject::~GameObject()
 {
 }
 
-//setTagName function
-void GameObject::setTagName(std::string tagName)
-{
-  this->tagName = tagName;
-    std::cout << "tagName: " << tagName << std::endl;
-}
-//getTagName function
-std::string GameObject::getTagName()
-{
-  return tagName;
-
-}
 void GameObject::Update(float& deltaTime)
 {
   drawable->SetPosition(rigidbody->GetPosition2SFML());
@@ -41,4 +29,18 @@ void GameObject::Update(float& deltaTime)
 void GameObject::Draw()
 {
   window->draw(*drawable->GetSprite());
+}
+//setTagName function
+void GameObject::setTagName(const char* tagName)
+{
+  this->tagName = tagName;
+    std::cout << "tagName: " << tagName << std::endl;
+}
+//getTagName function
+  const char* GameObject::getTagName() const
+{
+  
+  return tagName;
+  //std::cout << "tagName: " << tagName << std::endl;
+
 }
