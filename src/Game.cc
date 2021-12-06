@@ -184,8 +184,8 @@ Game::Game()
   drawPhysics = new DrawPhysics(window);
   contactEventManager = new ContactEventManager();
   world->SetContactListener(contactEventManager);
-
-  tileGroup = new TileGroup(window, ASSETS_TILES, 16, 16, TILE_SCALE, 11, 10, ASSETS_TILE_GROUP_1);
+  
+  tileGroup = new TileGroup(window, ASSETS_TILES, 16, 16, TILE_SCALE, 16, 19, ASSETS_TILE_GROUP_1);
 
   gameObjects = new std::vector<GameObject *>();
   wallObjects = new std::vector<WallObject *>();
