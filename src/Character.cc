@@ -15,8 +15,8 @@ GameObject(textureUrl, position, scale, width, height, col, row, b2BodyType::b2_
 
   rigidbody->FreezeRotation(true);
 
-  idleAnim = new Animation(0.10f, 3,1, 2, 25, 21, drawable);
-  runAnim = new Animation(0.10f, 3,1, 4, 25, 21, drawable);
+  idleAnim = new Animation(0.10f, 3,1, 2, 24, 21, drawable);
+  runAnim = new Animation(0.10f, 3,1, 4, 24, 21, drawable);
 }
 
 Character::~Character()
