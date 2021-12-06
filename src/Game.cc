@@ -1,10 +1,12 @@
 #include "CommonHeaders.hh"
 #include "Character.hh"
 #include "CloudH.hh"
+#include "tileGroup.hh"
 
 sf::RectangleShape *rectangle{new sf::RectangleShape(sf::Vector2f(300.f, 300.f))};
 Character *character1{};
 GameObject *bacon1{};
+TileGroup* tileGroup{};
 
 // fila arriba
 CloudH *cloudh{};
@@ -183,6 +185,7 @@ Game::Game()
   contactEventManager = new ContactEventManager();
   world->SetContactListener(contactEventManager);
 
+  tileGroup = new TileGroup(window, ASSETS_TILES, 16, 16, GAME_SCALE, 11, 10, ASSETS_TILE_GROUP_1);
 
   gameObjects = new std::vector<GameObject *>();
 
