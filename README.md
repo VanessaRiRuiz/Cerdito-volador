@@ -1,11 +1,9 @@
 # Cerdito volador
 ## Integrantes
-
- - Astrid Carolina Castro Cervantes
- - Brunne Felix Talamante
- - Vanessa Rivera Ruiz
- - Christopher Angel Serrano Soto
-
+ - Astrid Carolina Castro Cervantes 
+ - Vanessa Rivera Ruiz 
+ - César Arturo Esquer Díaz 
+ - Jorge Ernesto Zazueta Pérez
 ## Introducción 
  
  Este proyecto tiene como objetivo la creación de un videojuego para la materia de Programación Orientada a Objetos. Dentro de ella nos adentramos al mundo de la programación en el lenguaje C + +. La realización de este proyecto debe ser basado en el motor visto en clase.
