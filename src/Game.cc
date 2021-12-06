@@ -191,7 +191,7 @@ Game::Game()
   wallObjects = new std::vector<WallObject *>();
 
   character1 = new Character(ASSETS_SPRITES, sf::Vector2f(500.f, 500.f), GAME_SCALE, 20, 16, 0, 5, 200.f, window, world);
-  bacon1 = new GameObject(ASSETS_SPRITES, sf::Vector2f(500.f, 300.f), GAME_SCALE, 20, 15, 10, 1, b2BodyType::b2_staticBody, window, world);
+ bacon1 = new GameObject(ASSETS_SPRITES, sf::Vector2f(300.f, 200.f), GAME_SCALE, 9, 16, 23, 4, b2BodyType::b2_staticBody, window, world);
   character1->setTagName("cerdito");
   bacon1->setTagName("bacon");
 
