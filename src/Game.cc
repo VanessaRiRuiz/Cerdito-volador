@@ -598,6 +598,10 @@ void Game::UpdatePhysics()
 
 void Game::Update()
 {
+  for (auto &wallObject : *wallObjects)
+  {
+    wallObject->Update(deltaTime);
+  }
   for (auto &gameObject : *gameObjects)
   {
     gameObject->Update(deltaTime);
@@ -606,7 +610,7 @@ void Game::Update()
 
 void Game::Render()
 {
-  window->clear(sf::Color{0, 0, 255, 120});
+  window->clear(sf::Color{0, 0, 0, 0});
   Draw();
   window->display();
 }
@@ -614,6 +618,10 @@ void Game::Render()
 void Game::Draw()
 {
   tileGroup->Draw();
+  for (auto &wallObject : *wallObjects)
+  {
+    wallObject->Draw();
+  }
   for (auto &gameObject : *gameObjects)
   {
     gameObject->Draw();
