@@ -5,6 +5,8 @@
 #include "DrawPhysics.hh"
 #include "GameObject.hh"
 #include "ContactEventManager.hh"
+#include "TileGroup.hh"
+
 
 class Game
 {

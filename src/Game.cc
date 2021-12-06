@@ -616,6 +616,7 @@ void Game::Render()
 
 void Game::Draw()
 {
+  tileGroup->Draw();
   for (auto &gameObject : *gameObjects)
   {
     gameObject->Draw();
