@@ -1,11 +1,11 @@
-#include "GameObject.hh"
+#include "WallObject.hh"
 #include <iostream>
-GameObject::GameObject()
+WallObject::WallObject()
 {
 
 }
 
-GameObject::GameObject(const char* textureUrl, sf::Vector2f position, float scale, float width, float height, int col, int row,
+WallObject::WallObject(const char* textureUrl, sf::Vector2f position, float scale, float width, float height, int col, int row,
 b2BodyType bodyType, sf::RenderWindow*& window, b2World*& world)
 {
   this->window = window;
@@ -18,29 +18,15 @@ b2BodyType bodyType, sf::RenderWindow*& window, b2World*& world)
   drawable->GetSprite()->setOrigin(width / 2, height / 2);
 }
 
-GameObject::~GameObject()
+WallObject::~WallObject()
 {
 }
 
-void GameObject::Update(float& deltaTime)
+void WallObject::Update(float& deltaTime)
 {
   drawable->SetPosition(rigidbody->GetPosition2SFML());
 }
-void GameObject::Draw()
+void WallObject::Draw()
 {
   window->draw(*drawable->GetSprite());
-}
-//setTagName function
-void GameObject::setTagName(const char* tagName)
-{
-  this->tagName = tagName;
-    std::cout << "tagName: " << tagName << std::endl;
-}
-//getTagName function
-  const char* GameObject::getTagName() const
-{
-  
-  return tagName;
-  //std::cout << "tagName: " << tagName << std::endl;
-
 }

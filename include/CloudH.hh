@@ -1,7 +1,7 @@
 #pragma once
-#include "GameObject.hh"
+#include "WallObject.hh"
 #include "Animation.hh"
-class CloudH : public GameObject
+class CloudH : public WallObject
 {
 private:
   Animation* idleAnim{};
