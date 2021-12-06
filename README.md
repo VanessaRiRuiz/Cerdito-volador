@@ -40,6 +40,26 @@ Después de tener la temática definida y los elementos, realizamos un boceto de
 
 En este videojuego implementamos un marcador, que fue contando el número de objetos que el personaje principal agarraba, esto fue algo que no vimos en clase por lo tanto lo tuvimos que investigar. Ya al tener la investigación bien hecha empezamos a introducirlo en nuestro videojuego.
 
+Las clases que utilizamos fueron: Animation, Character, CloudH, GameObject, Game, InputSystem, main, Rigidbody, TextAssets, Tile, TileGroup.
+
+**Animation:** Sirve para cambiar de frame y con ello hacer la animación del personaje o del objeto con el que se utilicé.
+
+**Character:** En este le dimos textura al personaje por medio de los sprites, además de implementar las animaciones cuando se encuentra en reposo y en movimiento.
+
+**CloudH:** Con esta clases agregamos todos los objetos de nube
+
+**GameObject:** Esta clase agrega objetos en el juego que es lo que se hace principalmente en el nuestro, contiene al Rigidbody lo cual hace que los objetos tengan gravedad.
+
+**Game**: aquí llamamos todos los objetos con los cuales íbamos a formar nuestro laberinto, además de llamar a los objetos que se iban a recolectar, y al personaje principal.
+
+**InputSystem:** Esta clase es para poder dar movimiento a nuestro personaje, en este caso utilizamos las flechas para direccionar.
+
+**Rigidbody:** Permite que el personaje se mueva de una forma más natural, utiliza box2d para implementar un motor físico en dos dimensiones.
+
+**TextAsset:** Sirve para agregar y personalizar texto en nuestro videojuego.
+
+**Tile:** Se utiliza para realizar el fondo utilizando sprites.
+
 ## Conclusiones
 
 Durante la realización del videojuego tuvimos ciertos inconvenientes ya que no teníamos experiencia en ello. Lo más difícil fue desaparecer los objetos y que esto apareciera en un marcador, nuestro problema se derivó a que el laberinto lo hicimos con nubes las cuales eran un objeto cada una lo cual saturó el juego. Esto se pudo resolver gracias a que intentamos distintos métodos y reducimos los objetos.
