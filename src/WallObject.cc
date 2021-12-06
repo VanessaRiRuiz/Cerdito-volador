@@ -1,3 +1,4 @@
+/*
 #include "WallObject.hh"
 #include <iostream>
 WallObject::WallObject()
@@ -30,3 +31,4 @@ void WallObject::Draw()
 {
   window->draw(*drawable->GetSprite());
 }
+*/

@@ -1,3 +1,4 @@
+/*
 #include "CloudH.hh"
 
 CloudH::CloudH(const char* textureUrl, sf::Vector2f position, 
@@ -16,3 +17,4 @@ void CloudH::Update(float& deltaTime)
 {
   idleAnim->Play(deltaTime);
 }
+*/

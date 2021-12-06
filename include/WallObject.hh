@@ -1,3 +1,4 @@
+ /*
 #pragma once
 #include<SFML/Graphics.hpp>
 #include "Rigidbody.hh"
@@ -18,3 +19,4 @@ public:
   virtual void Update(float& deltaTime);
   virtual void Draw();
 };
+*/

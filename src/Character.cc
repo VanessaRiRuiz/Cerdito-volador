@@ -42,7 +42,7 @@ void Character::Update(float& deltaTime)
 
 void Character::Movement(float& deltaTime)
 {
-  rigidbody->MoveBody(new b2Vec2(InputSystem::GetAxis().x * moveSpeed,
+  rigidbody->MoveBody(b2Vec2(InputSystem::GetAxis().x * moveSpeed,
   InputSystem::GetAxis().y * moveSpeed));
 }
 

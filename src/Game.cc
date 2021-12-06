@@ -3,12 +3,12 @@
 #include "CloudH.hh"
 #include "tileGroup.hh"
 
-sf::RectangleShape *rectangle{new sf::RectangleShape(sf::Vector2f(300.f, 300.f))};
+// sf::RectangleShape *rectangle{new sf::RectangleShape(sf::Vector2f(300.f, 300.f))};
 Character *character1{};
 GameObject *bacon1{};
 TileGroup *tileGroup{};
 
-// fila arriba
+/* fila arriba
 CloudH *cloudh001{};
 CloudH *cloudh002{};
 CloudH *cloudh003{};
@@ -171,7 +171,7 @@ CloudH *cloudh094{};
 CloudH *cloudh095{};
 CloudH *cloudh096{};
 CloudH *cloudh097{};
-
+*/
 TextAsset *text1{};
 
 Game::Game()
@@ -182,21 +182,19 @@ Game::Game()
   gravity = new b2Vec2(0.f, 0.f);
   world = new b2World(*gravity);
   drawPhysics = new DrawPhysics(window);
-  contactEventManager = new ContactEventManager();
-  world->SetContactListener(contactEventManager);
-  
+
+
   tileGroup = new TileGroup(window, ASSETS_TILES, 16, 16, TILE_SCALE, 16, 19, ASSETS_TILE_GROUP_1);
 
   gameObjects = new std::vector<GameObject *>();
-  wallObjects = new std::vector<WallObject *>();
+  gameObjectsDeleteList = new std::vector<GameObject *>();
+  // wallObjects = new std::vector<WallObject *>();
+    contactEventManager = new ContactEventManager(gameObjectsDeleteList);
 
   character1 = new Character(ASSETS_SPRITES, sf::Vector2f(500.f, 500.f), GAME_SCALE, 20, 16, 0, 5, 200.f, window, world);
   bacon1 = new GameObject(ASSETS_SPRITES, sf::Vector2f(300.f, 200.f), GAME_SCALE, 9, 16, 23, 4, b2BodyType::b2_staticBody, window, world);
-  character1->setTagName("cerdito");
-  bacon1->setTagName("bacon");
 
-  gameObjects->push_back(character1);
-  gameObjects->push_back(bacon1);
+  /*
   // fila arriba
   cloudh001 = new CloudH(ASSETS_SPRITES, sf::Vector2f(20,  20), GAME_SCALE, 22, 14, 6, 3, window, world);
   cloudh002 = new CloudH(ASSETS_SPRITES, sf::Vector2f(85,  20), GAME_SCALE, 22, 14, 4, 5, window, world);
@@ -256,7 +254,7 @@ Game::Game()
   cloudh091 = new CloudH(ASSETS_SPRITES, sf::Vector2f(20.f, 854.f), GAME_SCALE, 22, 16, 4, 5, window, world);
   cloudh092 = new CloudH(ASSETS_SPRITES, sf::Vector2f(20.f, 904.f), GAME_SCALE, 22, 16, 4, 5, window, world);
   cloudh093 = new CloudH(ASSETS_SPRITES, sf::Vector2f(20.f, 954.f), GAME_SCALE, 22, 16, 4, 5, window, world);
-  
+
   // fila abajo
   cloudh016 = new CloudH(ASSETS_SPRITES, sf::Vector2f(20, 990), GAME_SCALE, 22, 16, 6, 3, window, world);
   cloudh017 = new CloudH(ASSETS_SPRITES, sf::Vector2f(85, 990), GAME_SCALE, 22, 16, 4, 5, window, world);
@@ -273,7 +271,7 @@ Game::Game()
   cloudh028 = new CloudH(ASSETS_SPRITES, sf::Vector2f(800, 990), GAME_SCALE, 22, 16, 4, 5, window, world);
   cloudh029 = new CloudH(ASSETS_SPRITES, sf::Vector2f(865, 990), GAME_SCALE, 22, 16, 4, 5, window, world);
   cloudh030 = new CloudH(ASSETS_SPRITES, sf::Vector2f(945, 990), GAME_SCALE, 22, 16, 4, 5, window, world);
-  
+
   // laberinto
 
   cloudh031 = new CloudH(ASSETS_SPRITES, sf::Vector2f(150, 130), GAME_SCALE, 22, 14, 4, 5, window, world);
@@ -377,9 +375,9 @@ Game::Game()
   cloudh149 = new CloudH(ASSETS_SPRITES, sf::Vector2f(735.f, 580.f), GAME_SCALE, 22, 14, 4, 5, window, world);
   cloudh150 = new CloudH(ASSETS_SPRITES, sf::Vector2f(670.f, 630.f), GAME_SCALE, 22, 14, 4, 5, window, world);
   cloudh151 = new CloudH(ASSETS_SPRITES, sf::Vector2f(670.f, 680.f), GAME_SCALE, 22, 14, 4, 5, window, world);
-  
+   */
   text1 = new TextAsset(window, ASSETS_FONT, "Cerdito Volador", 14, sf::Color::White, sf::Vector2f(50.f, 50.f));
-
+  /*
   // fila arriba
   wallObjects->push_back(cloudh001);
   wallObjects->push_back(cloudh002);
@@ -495,7 +493,7 @@ Game::Game()
  wallObjects->push_back(cloudh149);
  wallObjects->push_back(cloudh150);
  wallObjects->push_back(cloudh151);
-  
+
   // columna derecha
  wallObjects->push_back(cloudh052);
  wallObjects->push_back(cloudh053);
@@ -520,7 +518,7 @@ Game::Game()
  wallObjects->push_back(cloudh083);
  wallObjects->push_back(cloudh084);
  wallObjects->push_back(cloudh085);
- 
+
   // columna izquierda
  wallObjects->push_back(cloudh063);
  wallObjects->push_back(cloudh064);
@@ -545,7 +543,7 @@ Game::Game()
  wallObjects->push_back(cloudh095);
  wallObjects->push_back(cloudh096);
  wallObjects->push_back(cloudh097);
-  
+  */
 }
 
 Game::~Game()
@@ -554,10 +552,14 @@ Game::~Game()
 
 void Game::Start()
 {
+  character1->setTagName("cerdito");
+  bacon1->setTagName("bacon");
+  gameObjects->push_back(character1);
+  gameObjects->push_back(bacon1);
   uint32 flags{};
   flags += b2Draw::e_shapeBit;
   // flags += b2Draw::e_pairBit;
-
+  world->SetContactListener(contactEventManager);
   world->SetDebugDraw(drawPhysics);
   drawPhysics->SetFlags(flags);
 }
@@ -598,10 +600,10 @@ void Game::UpdatePhysics()
 
 void Game::Update()
 {
-  for (auto &wallObject : *wallObjects)
+  /*for (auto &wallObject : *wallObjects)
   {
     wallObject->Update(deltaTime);
-  }
+  }*/
   for (auto &gameObject : *gameObjects)
   {
     gameObject->Update(deltaTime);
@@ -610,6 +612,13 @@ void Game::Update()
 
 void Game::Render()
 {
+  for (auto &gameObjectPendingDelete : *gameObjectsDeleteList)
+  {
+    gameObjects->erase(std::remove(gameObjects->begin(), gameObjects->end(), gameObjectPendingDelete), gameObjects->end());
+    delete gameObjectPendingDelete;
+  }
+  gameObjectsDeleteList->clear();
+
   window->clear(sf::Color{0, 0, 0, 0});
   Draw();
   window->display();
@@ -618,10 +627,10 @@ void Game::Render()
 void Game::Draw()
 {
   tileGroup->Draw();
-  for (auto &wallObject : *wallObjects)
+  /*for (auto &wallObject : *wallObjects)
   {
     wallObject->Draw();
-  }
+  }*/
   for (auto &gameObject : *gameObjects)
   {
     gameObject->Draw();

@@ -1,3 +1,4 @@
+/*
 #pragma once
 #include "WallObject.hh"
 #include "Animation.hh"
@@ -12,3 +13,4 @@ public:
   ~CloudH();
   void Update(float& deltaTime) override;
 };
+*/
