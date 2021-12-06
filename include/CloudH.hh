@@ -1,8 +1,8 @@
-/*
+
 #pragma once
-#include "WallObject.hh"
+#include "GameObject.hh"
 #include "Animation.hh"
-class CloudH : public WallObject
+class CloudH : public GameObject
 {
 private:
   Animation* idleAnim{};
@@ -13,4 +13,3 @@ public:
   ~CloudH();
   void Update(float& deltaTime) override;
 };
-*/

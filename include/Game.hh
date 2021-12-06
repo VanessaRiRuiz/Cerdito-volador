@@ -6,7 +6,6 @@
 #include "GameObject.hh"
 #include "ContactEventManager.hh"
 #include "TileGroup.hh"
-//#include "WallObject.hh"
 
 
 class Game
@@ -23,7 +22,6 @@ private:
   sf::Clock* gameClock{};
 
   std::vector<GameObject*>* gameObjects;
-  //std::vector<WallObject*>* wallObjects;
   std::vector<GameObject*>* gameObjectsDeleteList;
 
   void MainLoop();

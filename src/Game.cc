@@ -2,13 +2,14 @@
 #include "Character.hh"
 #include "CloudH.hh"
 #include "tileGroup.hh"
+#include "CloudH.hh"
 
 // sf::RectangleShape *rectangle{new sf::RectangleShape(sf::Vector2f(300.f, 300.f))};
 Character *character1{};
 GameObject *bacon1{};
 TileGroup *tileGroup{};
 
-/* fila arriba
+// fila arriba
 CloudH *cloudh001{};
 CloudH *cloudh002{};
 CloudH *cloudh003{};
@@ -43,7 +44,7 @@ CloudH *cloudh029{};
 CloudH *cloudh030{};
 
 // laberinto
-
+/*
 CloudH *cloudh031{};
 CloudH *cloudh032{};
 CloudH *cloudh033{};
@@ -146,8 +147,8 @@ CloudH *cloudh082{};
 CloudH *cloudh083{};
 CloudH *cloudh084{};
 CloudH *cloudh085{};
-
-// columna izquierda
+*/
+/* columna izquierda
 CloudH *cloudh063{};
 CloudH *cloudh064{};
 CloudH *cloudh065{};
@@ -183,21 +184,18 @@ Game::Game()
   world = new b2World(*gravity);
   drawPhysics = new DrawPhysics(window);
 
-
   tileGroup = new TileGroup(window, ASSETS_TILES, 16, 16, TILE_SCALE, 16, 19, ASSETS_TILE_GROUP_1);
 
   gameObjects = new std::vector<GameObject *>();
   gameObjectsDeleteList = new std::vector<GameObject *>();
-  // wallObjects = new std::vector<WallObject *>();
-    contactEventManager = new ContactEventManager(gameObjectsDeleteList);
+  contactEventManager = new ContactEventManager(gameObjectsDeleteList);
 
-  character1 = new Character(ASSETS_SPRITES, sf::Vector2f(500.f, 500.f), GAME_SCALE, 20, 16, 0, 5, 200.f, window, world);
+  character1 = new Character(ASSETS_SPRITES, sf::Vector2f(500.f, 500.f), GAME_SCALE, 20, 16, 0, 5, 500.f, window, world);
   bacon1 = new GameObject(ASSETS_SPRITES, sf::Vector2f(300.f, 200.f), GAME_SCALE, 9, 16, 23, 4, b2BodyType::b2_staticBody, window, world);
 
-  /*
   // fila arriba
-  cloudh001 = new CloudH(ASSETS_SPRITES, sf::Vector2f(20,  20), GAME_SCALE, 22, 14, 6, 3, window, world);
-  cloudh002 = new CloudH(ASSETS_SPRITES, sf::Vector2f(85,  20), GAME_SCALE, 22, 14, 4, 5, window, world);
+  cloudh001 = new CloudH(ASSETS_SPRITES, sf::Vector2f(20, 20), GAME_SCALE, 22, 14, 6, 3, window, world);
+  cloudh002 = new CloudH(ASSETS_SPRITES, sf::Vector2f(85, 20), GAME_SCALE, 22, 14, 4, 5, window, world);
   cloudh003 = new CloudH(ASSETS_SPRITES, sf::Vector2f(150, 20), GAME_SCALE, 22, 14, 4, 5, window, world);
   cloudh004 = new CloudH(ASSETS_SPRITES, sf::Vector2f(215, 20), GAME_SCALE, 22, 14, 4, 5, window, world);
   cloudh005 = new CloudH(ASSETS_SPRITES, sf::Vector2f(280, 20), GAME_SCALE, 22, 14, 4, 5, window, world);
@@ -206,12 +204,12 @@ Game::Game()
   cloudh008 = new CloudH(ASSETS_SPRITES, sf::Vector2f(475, 20), GAME_SCALE, 22, 14, 4, 5, window, world);
   cloudh009 = new CloudH(ASSETS_SPRITES, sf::Vector2f(540, 20), GAME_SCALE, 22, 14, 4, 5, window, world);
   cloudh010 = new CloudH(ASSETS_SPRITES, sf::Vector2f(605, 20), GAME_SCALE, 22, 14, 4, 5, window, world);
-  cloudh011 = new CloudH(ASSETS_SPRITES, sf::Vector2f(670,  20), GAME_SCALE, 22, 14, 4, 5, window, world);
+  cloudh011 = new CloudH(ASSETS_SPRITES, sf::Vector2f(670, 20), GAME_SCALE, 22, 14, 4, 5, window, world);
   cloudh012 = new CloudH(ASSETS_SPRITES, sf::Vector2f(735, 20), GAME_SCALE, 22, 14, 4, 5, window, world);
   cloudh013 = new CloudH(ASSETS_SPRITES, sf::Vector2f(800, 20), GAME_SCALE, 22, 14, 4, 5, window, world);
   cloudh014 = new CloudH(ASSETS_SPRITES, sf::Vector2f(865, 20), GAME_SCALE, 22, 14, 4, 5, window, world);
   cloudh015 = new CloudH(ASSETS_SPRITES, sf::Vector2f(945, 20), GAME_SCALE, 22, 14, 4, 5, window, world);
-
+  /*
   // columna derecha
   cloudh074 = new CloudH(ASSETS_SPRITES, sf::Vector2f(945.f, 54.f), GAME_SCALE, 22, 16, 4, 5, window, world);
   cloudh075 = new CloudH(ASSETS_SPRITES, sf::Vector2f(945.f, 104.f), GAME_SCALE, 22, 16, 4, 5, window, world);
@@ -236,7 +234,8 @@ Game::Game()
   cloudh083 = new CloudH(ASSETS_SPRITES, sf::Vector2f(945.f, 854.f), GAME_SCALE, 22, 16, 4, 5, window, world);
   cloudh084 = new CloudH(ASSETS_SPRITES, sf::Vector2f(945.f, 894.f), GAME_SCALE, 22, 16, 4, 5, window, world);
   cloudh085 = new CloudH(ASSETS_SPRITES, sf::Vector2f(945.f, 944.f), GAME_SCALE, 22, 16, 4, 5, window, world);
-  // columna izquierda
+  
+  /* columna izquierda
   cloudh063 = new CloudH(ASSETS_SPRITES, sf::Vector2f(20.f, 60.f), GAME_SCALE, 22, 16, 4, 5, window, world);
   cloudh064 = new CloudH(ASSETS_SPRITES, sf::Vector2f(20.f, 110.f), GAME_SCALE, 22, 16, 4, 5, window, world);
   cloudh065 = new CloudH(ASSETS_SPRITES, sf::Vector2f(20.f, 160.f), GAME_SCALE, 22, 16, 4, 5, window, world);
@@ -254,7 +253,7 @@ Game::Game()
   cloudh091 = new CloudH(ASSETS_SPRITES, sf::Vector2f(20.f, 854.f), GAME_SCALE, 22, 16, 4, 5, window, world);
   cloudh092 = new CloudH(ASSETS_SPRITES, sf::Vector2f(20.f, 904.f), GAME_SCALE, 22, 16, 4, 5, window, world);
   cloudh093 = new CloudH(ASSETS_SPRITES, sf::Vector2f(20.f, 954.f), GAME_SCALE, 22, 16, 4, 5, window, world);
-
+*/
   // fila abajo
   cloudh016 = new CloudH(ASSETS_SPRITES, sf::Vector2f(20, 990), GAME_SCALE, 22, 16, 6, 3, window, world);
   cloudh017 = new CloudH(ASSETS_SPRITES, sf::Vector2f(85, 990), GAME_SCALE, 22, 16, 4, 5, window, world);
@@ -273,7 +272,7 @@ Game::Game()
   cloudh030 = new CloudH(ASSETS_SPRITES, sf::Vector2f(945, 990), GAME_SCALE, 22, 16, 4, 5, window, world);
 
   // laberinto
-
+  /*
   cloudh031 = new CloudH(ASSETS_SPRITES, sf::Vector2f(150, 130), GAME_SCALE, 22, 14, 4, 5, window, world);
   cloudh032 = new CloudH(ASSETS_SPRITES, sf::Vector2f(215, 130), GAME_SCALE, 22, 14, 4, 5, window, world);
   cloudh033 = new CloudH(ASSETS_SPRITES, sf::Vector2f(280, 130), GAME_SCALE, 22, 14, 4, 5, window, world);
@@ -377,41 +376,43 @@ Game::Game()
   cloudh151 = new CloudH(ASSETS_SPRITES, sf::Vector2f(670.f, 680.f), GAME_SCALE, 22, 14, 4, 5, window, world);
    */
   text1 = new TextAsset(window, ASSETS_FONT, "Cerdito Volador", 14, sf::Color::White, sf::Vector2f(50.f, 50.f));
-  /*
+
   // fila arriba
-  wallObjects->push_back(cloudh001);
-  wallObjects->push_back(cloudh002);
-  wallObjects->push_back(cloudh003);
-  wallObjects->push_back(cloudh004);
-  wallObjects->push_back(cloudh005);
-  wallObjects->push_back(cloudh006);
-  wallObjects->push_back(cloudh007);
-  wallObjects->push_back(cloudh008);
-  wallObjects->push_back(cloudh009);
-  wallObjects->push_back(cloudh010);
-  wallObjects->push_back(cloudh011);
-  wallObjects->push_back(cloudh012);
-  wallObjects->push_back(cloudh013);
-  wallObjects->push_back(cloudh014);
-  wallObjects->push_back(cloudh015);
+  
+  gameObjects->push_back(cloudh002);
+  gameObjects->push_back(cloudh003);
+  gameObjects->push_back(cloudh004);
+  gameObjects->push_back(cloudh005);
+  gameObjects->push_back(cloudh006);
+  gameObjects->push_back(cloudh007);
+  gameObjects->push_back(cloudh008);
+  gameObjects->push_back(cloudh009);
+  gameObjects->push_back(cloudh010);
+  gameObjects->push_back(cloudh011);
+  gameObjects->push_back(cloudh012);
+  gameObjects->push_back(cloudh013);
+  gameObjects->push_back(cloudh014);
+  gameObjects->push_back(cloudh015);
 
   // fila abajo
- wallObjects->push_back(cloudh016);
- wallObjects->push_back(cloudh017);
- wallObjects->push_back(cloudh018);
- wallObjects->push_back(cloudh019);
- wallObjects->push_back(cloudh020);
- wallObjects->push_back(cloudh021);
- wallObjects->push_back(cloudh022);
- wallObjects->push_back(cloudh023);
- wallObjects->push_back(cloudh024);
- wallObjects->push_back(cloudh025);
- wallObjects->push_back(cloudh026);
- wallObjects->push_back(cloudh027);
- wallObjects->push_back(cloudh028);
- wallObjects->push_back(cloudh029);
- wallObjects->push_back(cloudh030);
-  // laberinto0
+  gameObjects->push_back(cloudh016);
+  gameObjects->push_back(cloudh017);
+  gameObjects->push_back(cloudh018);
+  gameObjects->push_back(cloudh019);
+  gameObjects->push_back(cloudh020);
+  gameObjects->push_back(cloudh021);
+  gameObjects->push_back(cloudh022);
+  gameObjects->push_back(cloudh023);
+  gameObjects->push_back(cloudh024);
+  gameObjects->push_back(cloudh025);
+  gameObjects->push_back(cloudh026);
+  gameObjects->push_back(cloudh027);
+  gameObjects->push_back(cloudh028);
+  gameObjects->push_back(cloudh029);
+  gameObjects->push_back(cloudh030);
+  /*
+  // laberinto
+  
  wallObjects->push_back(cloudh031);
  wallObjects->push_back(cloudh032);
  wallObjects->push_back(cloudh033);
@@ -495,54 +496,54 @@ Game::Game()
  wallObjects->push_back(cloudh151);
 
   // columna derecha
- wallObjects->push_back(cloudh052);
- wallObjects->push_back(cloudh053);
- wallObjects->push_back(cloudh054);
- wallObjects->push_back(cloudh055);
- wallObjects->push_back(cloudh056);
- wallObjects->push_back(cloudh057);
- wallObjects->push_back(cloudh058);
- wallObjects->push_back(cloudh059);
- wallObjects->push_back(cloudh060);
- wallObjects->push_back(cloudh061);
- wallObjects->push_back(cloudh062);
- wallObjects->push_back(cloudh074);
- wallObjects->push_back(cloudh075);
- wallObjects->push_back(cloudh076);
- wallObjects->push_back(cloudh077);
- wallObjects->push_back(cloudh078);
- wallObjects->push_back(cloudh079);
- wallObjects->push_back(cloudh080);
- wallObjects->push_back(cloudh081);
- wallObjects->push_back(cloudh082);
- wallObjects->push_back(cloudh083);
- wallObjects->push_back(cloudh084);
- wallObjects->push_back(cloudh085);
+  wallObjects->push_back(cloudh052);
+  wallObjects->push_back(cloudh053);
+  wallObjects->push_back(cloudh054);
+  wallObjects->push_back(cloudh055);
+  wallObjects->push_back(cloudh056);
+  wallObjects->push_back(cloudh057);
+  wallObjects->push_back(cloudh058);
+  wallObjects->push_back(cloudh059);
+  wallObjects->push_back(cloudh060);
+  wallObjects->push_back(cloudh061);
+  wallObjects->push_back(cloudh062);
+  wallObjects->push_back(cloudh074);
+  wallObjects->push_back(cloudh075);
+  wallObjects->push_back(cloudh076);
+  wallObjects->push_back(cloudh077);
+  wallObjects->push_back(cloudh078);
+  wallObjects->push_back(cloudh079);
+  wallObjects->push_back(cloudh080);
+  wallObjects->push_back(cloudh081);
+  wallObjects->push_back(cloudh082);
+  wallObjects->push_back(cloudh083);
+  wallObjects->push_back(cloudh084);
+  wallObjects->push_back(cloudh085);
 
   // columna izquierda
- wallObjects->push_back(cloudh063);
- wallObjects->push_back(cloudh064);
- wallObjects->push_back(cloudh065);
- wallObjects->push_back(cloudh066);
- wallObjects->push_back(cloudh067);
- wallObjects->push_back(cloudh068);
- wallObjects->push_back(cloudh069);
- wallObjects->push_back(cloudh070);
- wallObjects->push_back(cloudh071);
- wallObjects->push_back(cloudh072);
- wallObjects->push_back(cloudh073);
- wallObjects->push_back(cloudh086);
- wallObjects->push_back(cloudh087);
- wallObjects->push_back(cloudh088);
- wallObjects->push_back(cloudh089);
- wallObjects->push_back(cloudh090);
- wallObjects->push_back(cloudh091);
- wallObjects->push_back(cloudh092);
- wallObjects->push_back(cloudh093);
- wallObjects->push_back(cloudh094);
- wallObjects->push_back(cloudh095);
- wallObjects->push_back(cloudh096);
- wallObjects->push_back(cloudh097);
+  wallObjects->push_back(cloudh063);
+  wallObjects->push_back(cloudh064);
+  wallObjects->push_back(cloudh065);
+  wallObjects->push_back(cloudh066);
+  wallObjects->push_back(cloudh067);
+  wallObjects->push_back(cloudh068);
+  wallObjects->push_back(cloudh069);
+  wallObjects->push_back(cloudh070);
+  wallObjects->push_back(cloudh071);
+  wallObjects->push_back(cloudh072);
+  wallObjects->push_back(cloudh073);
+  wallObjects->push_back(cloudh086);
+  wallObjects->push_back(cloudh087);
+  wallObjects->push_back(cloudh088);
+  wallObjects->push_back(cloudh089);
+  wallObjects->push_back(cloudh090);
+  wallObjects->push_back(cloudh091);
+  wallObjects->push_back(cloudh092);
+  wallObjects->push_back(cloudh093);
+  wallObjects->push_back(cloudh094);
+  wallObjects->push_back(cloudh095);
+  wallObjects->push_back(cloudh096);
+  wallObjects->push_back(cloudh097);
   */
 }
 
@@ -552,10 +553,12 @@ Game::~Game()
 
 void Game::Start()
 {
+  cloudh001->setTagName("cloudh001");
   character1->setTagName("cerdito");
   bacon1->setTagName("bacon");
   gameObjects->push_back(character1);
   gameObjects->push_back(bacon1);
+  gameObjects->push_back(cloudh001);
   uint32 flags{};
   flags += b2Draw::e_shapeBit;
   // flags += b2Draw::e_pairBit;
@@ -627,10 +630,6 @@ void Game::Render()
 void Game::Draw()
 {
   tileGroup->Draw();
-  /*for (auto &wallObject : *wallObjects)
-  {
-    wallObject->Draw();
-  }*/
   for (auto &gameObject : *gameObjects)
   {
     gameObject->Draw();
