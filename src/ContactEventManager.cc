@@ -1,10 +1,14 @@
 #include "ContactEventManager.hh"
 #include "GameObject.hh"
 #include<iostream>
+#include<cstring>
+#include<algorithm>
 
-ContactEventManager::ContactEventManager(std::vector<GameObject*>*& gameObjectDeleteList)
+ContactEventManager::ContactEventManager(Score*& score, std::vector<GameObject*>*& gameObjectDeleteList)
 {
+  this->score = score;
   this->gameObjectDeleteList = gameObjectDeleteList;
+
 }
 
 ContactEventManager::~ContactEventManager()
@@ -22,6 +26,7 @@ void ContactEventManager::BeginContact(b2Contact *contact)
   {
     if(goB->getTagName().compare("bacon") == 0)
     {
+      score->AddPoints(1);
       gameObjectDeleteList->push_back(goB);
     }
   }

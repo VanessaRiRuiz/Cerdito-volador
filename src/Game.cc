@@ -2,6 +2,7 @@
 #include "Character.hh"
 #include "CloudH.hh"
 #include "tileGroup.hh"
+#include "Score.hh"
 
 
 
@@ -186,18 +187,19 @@ CloudH *cloudh095{};
 CloudH *cloudh096{};
 CloudH *cloudh097{};
 TextAsset *text1{};
-
-
+Score *score{};
 
 
 Game::Game()
 {
 
-
+  
     soundBufferStepsSfx = new sf::SoundBuffer();
   soundSFXSteps = new sf::Sound();
 
   window = new sf::RenderWindow(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), GAME_NAME);
+  score = new Score(ASSETS_FONT, "Score ", 24, new sf::Vector2f(90.f, 50.f), new sf::Color(255, 255, 255), window);
+  text1 = new TextAsset(window, ASSETS_FONT, "Cerdito Volador", 18, sf::Color::White, sf::Vector2f(400.f, 50.f));
   event = new sf::Event();
   gameClock = new sf::Clock();
   gravity = new b2Vec2(0.f, 0.f);
@@ -208,7 +210,8 @@ Game::Game()
 
   gameObjects = new std::vector<GameObject *>();
   gameObjectsDeleteList = new std::vector<GameObject *>();
-  contactEventManager = new ContactEventManager(gameObjectsDeleteList);
+  contactEventManager = new ContactEventManager(score, gameObjectsDeleteList);
+  //score->Update();
 
   character1 = new Character(ASSETS_SPRITES, sf::Vector2f(500.f, 500.f), GAME_SCALE, 20, 16, 0, 5, 200.f, window, world);
   bacon1 = new GameObject(ASSETS_SPRITES, sf::Vector2f(300.f, 190.f), GAME_SCALE, 8, 16, 23, 4, b2BodyType::b2_staticBody, window, world);
@@ -403,9 +406,9 @@ Game::Game()
   cloudh150 = new CloudH(ASSETS_SPRITES, sf::Vector2f(670.f, 630.f), GAME_SCALE, 22, 14, 4, 5, window, world);
   cloudh151 = new CloudH(ASSETS_SPRITES, sf::Vector2f(670.f, 680.f), GAME_SCALE, 22, 14, 4, 5, window, world);
    
-  text1 = new TextAsset(window, ASSETS_FONT, "Cerdito Volador", 14, sf::Color::White, sf::Vector2f(50.f, 50.f));
-  
 
+  
+  
 
   soundBufferStepsSfx->loadFromFile("../assets/audio/musicaparacerdo.ogg");
   soundSFXSteps->setBuffer(*soundBufferStepsSfx);
@@ -699,6 +702,7 @@ void Game::Draw()
     gameObject->Draw();
   }
   text1->Draw();
+  score->Update();
   //world->DebugDraw();
 }
 

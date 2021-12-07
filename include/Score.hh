@@ -10,8 +10,9 @@ class Score
         int score{};
         std::string text;
     public:
-        Score(const char*, std::string, unsigned int, sf::Vector2f*, sf::Color*, sf::RenderWindow*&);
+        Score(const char*, std::string message, unsigned int, sf::Vector2f*, sf::Color*, sf::RenderWindow*&);
         ~Score();
         void Update();
         void AddPoints(unsigned int);
-};
+        void Draw();
+};  
