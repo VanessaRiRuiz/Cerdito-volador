@@ -3,3 +3,4 @@
 #include "InputSystem.hh"
 #include "Animation.hh"
 #include "TextAsset.hh"
+#include "Score.hh"

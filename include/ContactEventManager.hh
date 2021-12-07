@@ -1,14 +1,19 @@
 #pragma once
-#include<box2d/box2d.h>
+#include <box2d/box2d.h>
 #include "GameObject.hh"
-#include<vector>
+#include "Score.hh"
+#include "SFX.hh"
+#include <vector>
 
 class ContactEventManager : public b2ContactListener
 {
 private:
-  std::vector<GameObject*>* gameObjectDeleteList;
+  Score *score;
+  std::vector<GameObject *> *gameObjectDeleteList;
+  SFX* sfx;
+
 public:
-  ContactEventManager(std::vector<GameObject*>*& gameObjectDeleteList);
+  ContactEventManager(Score *&score, std::vector<GameObject *> *&gameObjectDeleteList);
   ~ContactEventManager();
 
   void BeginContact(b2Contact *contact) override;
