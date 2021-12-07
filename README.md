@@ -56,6 +56,12 @@ Las clases que utilizamos fueron: Animation, Character, CloudH, GameObject, Game
 
 **Tile:** Se utiliza para realizar el fondo utilizando sprites.
 
+**Score:** dentro de ella llamamos al ContactEvent para poder realizar nuestro contador 
+
+**ContactEvent:** Lo utilizamos para darle distintos valores a los objetos y para poder sumarlos
+
+**SFX:** Se utilizó para agregar los efectos de sonido al momento de hacer contacto con un objeto
+
 ## Conclusiones
 
 Durante la realización del videojuego tuvimos ciertos inconvenientes ya que no teníamos experiencia en ello. Lo más difícil fue desaparecer los objetos y que esto apareciera en un marcador, nuestro problema se derivó a que el laberinto lo hicimos con nubes las cuales eran un objeto cada una lo cual saturó el juego. Esto se pudo resolver gracias a que intentamos distintos métodos y reducimos los objetos.
