@@ -31,7 +31,7 @@ Después de tener la temática definida y los elementos, realizamos un boceto de
 
 ![](https://lh5.googleusercontent.com/3JLBBYthjvPDfs00_FoD6ZcbeBEMVHEy7K-MgBY8iMdmdWVx-cbownX42pEpkmCH3glwAAvnrsXnq0eu3CVAFem-5iqr52j-VdJ5HJr7yA-OddXLh-P2tvnhHpXwOQXcNxWTssaK)  
 
-Implementamos un game over para que el jugador supiera cuando terminaba el juego. Además le agregamos música al para que tuviera más dinamismo y se pudiera disfrutar más.
+Implementamos un game over para que el jugador supiera cuando terminaba el juego, además le agregamos música para que tuviera más dinamismo y se pudiera disfrutar más.
 
 
 En este videojuego implementamos un marcador, que fue contando el número de objetos que el personaje principal agarraba, esto fue algo que no vimos en clase por lo tanto lo tuvimos que investigar. Ya al tener la investigación bien hecha empezamos a introducirlo en nuestro videojuego.
