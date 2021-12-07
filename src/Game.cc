@@ -606,7 +606,7 @@ void Game::Start()
   bacon7->setTagName("bacon");
   bacon8->setTagName("bacon");
    bacon9->setTagName("bacon");
- crown->setTagName("bacon");
+  crown->setTagName("bacon");
 
   gameObjects->push_back(character1);
   gameObjects->push_back(bacon1);
