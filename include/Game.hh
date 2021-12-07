@@ -6,11 +6,7 @@
 #include "GameObject.hh"
 #include "ContactEventManager.hh"
 #include "TileGroup.hh"
-<<<<<<< HEAD
-#include "WallObject.hh"
-=======
 #include <SFML/Audio.hpp>
->>>>>>> production
 
 
 class Game
@@ -27,11 +23,7 @@ private:
   sf::Clock* gameClock{};
 
   std::vector<GameObject*>* gameObjects;
-<<<<<<< HEAD
-  std::vector<WallObject*>* wallObjects;
-=======
   std::vector<GameObject*>* gameObjectsDeleteList;
->>>>>>> production
 
   void MainLoop();
   void UpdatePhysics();
