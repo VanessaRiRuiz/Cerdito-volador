@@ -4,10 +4,3 @@
 #include "Animation.hh"
 #include "TextAsset.hh"
 #include "Score.hh"
-
-enum GameState {
-    MENU,
-    GAME,
-    PAUSE,
-    GAMEOVER
-};

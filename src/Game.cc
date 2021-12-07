@@ -3,10 +3,7 @@
 #include "CloudH.hh"
 #include "tileGroup.hh"
 #include "Score.hh"
-#include "Button.hh"
 
-
-GameState gameState{GAME};
 // sf::RectangleShape *rectangle{new sf::RectangleShape(sf::Vector2f(300.f, 300.f))};
 Character *character1{};
 GameObject *bacon1{};
@@ -187,16 +184,13 @@ CloudH *cloudh096{};
 CloudH *cloudh097{};
 TextAsset *text1{};
 Score *score{};
-sf::Texture *bannerTexture{};
 
 Game::Game()
 {
-  gameState = MENU;
 
   soundBufferStepsSfx = new sf::SoundBuffer();
   soundSFXSteps = new sf::Sound();
-  bannerTexture = new sf::Texture();
-  bannerTexture->loadFromFile("../assets/menu.jpeg");
+
   window = new sf::RenderWindow(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), GAME_NAME);
   score = new Score(ASSETS_FONT, "Score ", 24, new sf::Vector2f(90.f, 50.f), new sf::Color(255, 255, 255), window);
   text1 = new TextAsset(window, ASSETS_FONT, "Cerdito Volador", 18, sf::Color::White, sf::Vector2f(400.f, 50.f));
@@ -205,11 +199,9 @@ Game::Game()
   gravity = new b2Vec2(0.f, 0.f);
   world = new b2World(*gravity);
   drawPhysics = new DrawPhysics(window);
-  sf::Sprite *bannerSprite{new sf::Sprite(*bannerTexture, *(new sf::IntRect(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT)))};
-  Button *btnStart{new Button((WINDOW_WIDTH / 2) - 75, (WINDOW_HEIGHT / 2) + 100, 150.f, 50.f, 0.5f,
-                              new sf::Color(255, 255, 255), new sf::Color(255, 255, 255), window, "Start", ASSETS_FONT, 35)};
 
   tileGroup = new TileGroup(window, ASSETS_TILES, 16, 16, TILE_SCALE, 16, 19, ASSETS_TILE_GROUP_1);
+
   gameObjects = new std::vector<GameObject *>();
   gameObjectsDeleteList = new std::vector<GameObject *>();
   contactEventManager = new ContactEventManager(score, gameObjectsDeleteList);
@@ -578,22 +570,6 @@ Game::Game()
   gameObjects->push_back(cloudh095);
   gameObjects->push_back(cloudh096);
   gameObjects->push_back(cloudh097);
-
-  if (gameState == MENU)
-  {
-
-    window->draw(*bannerSprite);
-    btnStart->Update();
-    if (btnStart->OnClick())
-    {
-      gameState = GAME;
-    }
-  }
-
-  if (gameState == GAME)
-  {
-     
-  }
 }
 
 Game::~Game()
