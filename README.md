@@ -27,7 +27,7 @@ Lo primero que hicimos fue definir la temática del juego, una vez que ya la ten
 ![](https://lh5.googleusercontent.com/ku-4KWuttrLhgCLU80DXERNExqkULTahYqQ_FhtdBAB2zKh1NwS7sk_8ncPoqEP7TY0XygqrC4AHHk_6vhWhJHspddJgiWoLxZ--vCqis9RKxEL3zp76RvJDeCYyGi1cUwCM8C9x)![](https://lh4.googleusercontent.com/OT9pZyS6Ztx1QNA0-ZtKAAAoaDaFD2oTjo3BCpdfd6kbHvf1TxaZdLWI8sOjOVulwz_7b_CFeYtCmNO1kOa26XLZ0xe-J15iOMSDWljROfphNsyCseTQdP1Ok4jZCjp72Y_N4CX0)![](https://lh3.googleusercontent.com/SueJVhYktkBV6SDTF34rAwOQ-IrciYInM2V-0jNDLLHvh4toe4_CA93FBKOT2obeCap-qnAjHPvOrZSJc7EkwSrkUpuIf44jNR6gO8hcVJnUhJGQtOOXvf0al5Qrv9unsKx3lsbc)![](https://lh6.googleusercontent.com/UIQg0KdIlylaup9drENFK-mnGzYRfLN-ksXfkKOMZmFh0b0s_TPxzh9KdfuGYWnzpiiMwU_G1ktOBVv94tTuZuX4yC_ShHcgBgsu0o107ObarkuUZ5K6IfVvf2fEbLIaLHcgrHoi)
 
 
-Después de tener la temática definida y los elementos, realizamos un boceto de como sería el laberinto, esta fue una parte esencial del juego, ya que, el jugador tendrá que recorrer la mayoría del laberinto antes de llegar al final.
+Después de tener la temática definida y los elementos, realizamos un boceto de como sería el laberinto, esta fue una parte esencial del juego, ya que el jugador tendrá que recorrer la mayoría del laberinto antes de llegar al final.
 
 ![](https://lh5.googleusercontent.com/3JLBBYthjvPDfs00_FoD6ZcbeBEMVHEy7K-MgBY8iMdmdWVx-cbownX42pEpkmCH3glwAAvnrsXnq0eu3CVAFem-5iqr52j-VdJ5HJr7yA-OddXLh-P2tvnhHpXwOQXcNxWTssaK)  
 
