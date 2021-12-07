@@ -591,7 +591,7 @@ void Game::Start()
   bacon7->setTagName("bacon");
   bacon8->setTagName("bacon");
   bacon9->setTagName("bacon");
-  crown->setTagName("crown");
+  crown->setTagName("bacon");
 
   gameObjects->push_back(character1);
   gameObjects->push_back(bacon1);
@@ -650,10 +650,6 @@ void Game::UpdatePhysics()
 
 void Game::Update()
 {
-  /*for (auto &wallObject : *gameObjects)
-  {
-    wallObject->Update(deltaTime);
-  }*/
   for (auto &gameObject : *gameObjects)
   {
     gameObject->Update(deltaTime);
@@ -684,7 +680,7 @@ void Game::Draw()
   }
   text1->Draw();
   score->Update();
-  // world->DebugDraw();
+   world->DebugDraw();
 }
 
 void Game::InputHandle()
