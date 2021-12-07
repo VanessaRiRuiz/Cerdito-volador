@@ -6,6 +6,7 @@
 
 ContactEventManager::ContactEventManager(Score*& score, std::vector<GameObject*>*& gameObjectDeleteList)
 {
+  sfx = new SFX();
   this->score = score;
   this->gameObjectDeleteList = gameObjectDeleteList;
 
@@ -27,6 +28,7 @@ void ContactEventManager::BeginContact(b2Contact *contact)
     {
       score->AddPoints(1);
       gameObjectDeleteList->push_back(goB);
+      sfx->PlaySFX(0);
     }
     if(goB->getTagName().compare("crown") == 0)
     {
