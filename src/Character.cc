@@ -16,7 +16,8 @@ GameObject(textureUrl, position, scale, width, height, col, row, b2BodyType::b2_
   rigidbody->FreezeRotation(true);
 
   idleAnim = new Animation(0.10f, 3,1, 2, 25, 21, drawable);
-  runAnim = new Animation(0.10f, 3,1, 4, 25, 21, drawable);
+  runAnim = new Animation(0.10f, 3,1, 2, 25, 21, drawable);
+  
 }
 
 Character::~Character()
@@ -42,7 +43,7 @@ void Character::Update(float& deltaTime)
 
 void Character::Movement(float& deltaTime)
 {
-  rigidbody->MoveBody(new b2Vec2(InputSystem::GetAxis().x * moveSpeed,
+  rigidbody->MoveBody(b2Vec2(InputSystem::GetAxis().x * moveSpeed,
   InputSystem::GetAxis().y * moveSpeed));
 }
 
