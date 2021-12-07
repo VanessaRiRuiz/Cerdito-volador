@@ -5,5 +5,6 @@ const char* ASSETS_SPRITES{"../assets/sprites.png"};
 const char* ASSETS_TILES{"../assets/tiles.png"};
 const char* ASSETS_TILE_GROUP_1{"../assets/tileGroups/map1.tg"};
 const char* ASSETS_FONT{"../assets/fonts/ARCADECLASSIC.TTF"};
+const char* ASSETS_SFX_STEPS{"../assets/audio/steps.ogg"};
 const float GAME_SCALE{3.f};
 const float TILE_SCALE{4.f};
