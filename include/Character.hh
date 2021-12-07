@@ -13,6 +13,8 @@ private:
 
   void Movement(float& deltaTime);
   void FlipSprite();
+ 
+
 public:
   Character(const char* textureUrl, sf::Vector2f position, 
   float scale, float width, float height, int col, int row, float moveSpeed, 

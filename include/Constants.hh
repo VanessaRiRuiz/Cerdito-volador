@@ -7,4 +7,5 @@ const char* ASSETS_TILE_GROUP_1{"../assets/tileGroups/map1.tg"};
 const char* ASSETS_FONT{"../assets/fonts/ARCADECLASSIC.TTF"};
 const float GAME_SCALE{3.f};
 const float TILE_SCALE{4.f};
-const char* ASSETS_SFX{"assets/audio/musicaparacerdo.ogg"};
+const char* ASSETS_SFX{"../assets/audio/musicaparacerdo.ogg"};
+const char* GAMEOVER{"../assets/scenes/final.jpeg"};
