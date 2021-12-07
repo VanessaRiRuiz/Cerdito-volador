@@ -25,6 +25,12 @@ private:
   std::vector<GameObject*>* gameObjects;
   std::vector<GameObject*>* gameObjectsDeleteList;
 
+   sf::SoundBuffer *soundBufferStepsSfx{};
+  sf::Sound *soundSFXSteps{};
+
+  float volume{15.f};
+  float stepDelay{10.f};
+
   void MainLoop();
   void UpdatePhysics();
   void Update();

@@ -4,6 +4,7 @@
 #include "tileGroup.hh"
 
 
+
 // sf::RectangleShape *rectangle{new sf::RectangleShape(sf::Vector2f(300.f, 300.f))};
 Character *character1{};
 GameObject *bacon1{};
@@ -20,9 +21,7 @@ GameObject *crown{};
 TileGroup *tileGroup{};
 
 
-    
-
-
+  
 // fila arriba
 CloudH *cloudh001{};
 CloudH *cloudh002{};
@@ -190,10 +189,13 @@ TextAsset *text1{};
 
 
 
+
 Game::Game()
 {
 
-   
+
+    soundBufferStepsSfx = new sf::SoundBuffer();
+  soundSFXSteps = new sf::Sound();
 
   window = new sf::RenderWindow(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), GAME_NAME);
   event = new sf::Event();
@@ -403,6 +405,11 @@ Game::Game()
    
   text1 = new TextAsset(window, ASSETS_FONT, "Cerdito Volador", 14, sf::Color::White, sf::Vector2f(50.f, 50.f));
   
+
+
+  soundBufferStepsSfx->loadFromFile("../assets/audio/musicaparacerdo.ogg");
+  soundSFXSteps->setBuffer(*soundBufferStepsSfx);
+  soundSFXSteps->setVolume(volume);
   // fila arriba
   
   gameObjects->push_back(cloudh002);
@@ -572,7 +579,6 @@ Game::Game()
   gameObjects->push_back(cloudh097);
 
 
-
   
 }
 
@@ -585,7 +591,7 @@ Game::~Game()
 void Game::Start()
 {
 
-
+  soundSFXSteps->play();
   cloudh001->setTagName("cloudh001");
   character1->setTagName("cerdito");
   bacon1->setTagName("bacon");
@@ -620,6 +626,8 @@ void Game::Start()
   world->SetContactListener(contactEventManager);
   world->SetDebugDraw(drawPhysics);
   drawPhysics->SetFlags(flags);
+
+  
 }
 
 void Game::Run()
@@ -684,6 +692,7 @@ void Game::Render()
 
 void Game::Draw()
 {
+  
   tileGroup->Draw();
   for (auto &gameObject : *gameObjects)
   {
